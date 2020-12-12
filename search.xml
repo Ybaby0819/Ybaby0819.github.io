@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>PPTP原理介绍</title>
+      <link href="/2020/12/13/pptp-yuan-li-jie-shao/"/>
+      <url>/2020/12/13/pptp-yuan-li-jie-shao/</url>
+      
+        <content type="html"><![CDATA[<h1 id="PPTP详解"><a href="#PPTP详解" class="headerlink" title="PPTP详解"></a>PPTP详解</h1><h4 id="知识点梳理："><a href="#知识点梳理：" class="headerlink" title="知识点梳理："></a>知识点梳理：</h4><ol><li>背景内容介绍</li><li>基础知识</li><li>应用场景</li><li>模拟拓扑</li><li>环境搭建（服务器基于Ubuntu，客户端基于Windows）</li><li>验证PPTP连接是否成功</li><li>基于报文详细分析连接构建过程</li><li>基于报文分析连接维护过程</li><li>基于数据报文的格式分析报文封装过程</li><li>总结</li></ol><h4 id="背景内容介绍"><a href="#背景内容介绍" class="headerlink" title="背景内容介绍"></a>背景内容介绍</h4><h6 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h6><p>PPTP（Point-to-Point Tunneling Protocol）是一种基于PPP的点对点隧道协议。</p><h6 id="RFC协议号："><a href="#RFC协议号：" class="headerlink" title="RFC协议号："></a>RFC协议号：</h6><p>2637 </p><h6 id="协议文档："><a href="#协议文档：" class="headerlink" title="协议文档："></a>协议文档：</h6><p><a href="https://tools.ietf.org/html/rfc2637" target="_blank" rel="noopener">RFC2637 PPTP协议文档</a></p><h6 id="关键词："><a href="#关键词：" class="headerlink" title="关键词："></a>关键词：</h6><p><strong>NAS</strong>(Netword Access Server)  <strong>PDU</strong>(Protocol data units)  <strong>Call</strong>  <strong>PAC</strong>(PPTP access Concentrator)  <strong>PNS</strong>(PPTP Network Server)  </p><h6 id="PPTP控制消息类型以及消息码："><a href="#PPTP控制消息类型以及消息码：" class="headerlink" title="PPTP控制消息类型以及消息码："></a>PPTP控制消息类型以及消息码：</h6><pre><code>     Control Message                        Message Code     (Control Connection Management)     Start-Control-Connection-Request            1     Start-Control-Connection-Reply              2     Stop-Control-Connection-Request             3     Stop-Control-Connection-Reply               4     Echo-Request                                5     Echo-Reply                                  6     (Call Management)     Outgoing-Call-Request                       7     Outgoing-Call-Reply                         8     Incoming-Call-Request                       9     Incoming-Call-Reply                        10     Incoming-Call-Connected                    11     Call-Clear-Request                         12     Call-Disconnect-Notify                     13     (Error Reporting)     WAN-Error-Notify                           14     (PPP Session Control)     Set-Link-Info                              15</code></pre><h4 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h4><h6 id="PPTP数据报文格式："><a href="#PPTP数据报文格式：" class="headerlink" title="PPTP数据报文格式："></a>PPTP数据报文格式：</h6><p><img src="pptp_format.png" alt="PPTP报文"></p><h6 id="简介（快速了解关于PPTP的一些相关内容）："><a href="#简介（快速了解关于PPTP的一些相关内容）：" class="headerlink" title="简介（快速了解关于PPTP的一些相关内容）："></a>简介（快速了解关于PPTP的一些相关内容）：</h6><ol><li><p>原始的IP报文加上PPP头部后，封装成PPP帧。GRE作为隧道协议，隧道中传输的是重新封装后得到的PPP帧；</p></li><li><p>IP协议作为传输协议，封装后的报文在公网上传输时，根据新的IP头部信息进行路由传输。</p></li><li><p>PPTP只能使用IP作为传输协议，也就是说，PPTP VPN只能运行于IP网络中。</p></li><li><p>PPTP工作在OSI模型的第二层，提供了一种在Internet上建立安全隧道的方式</p></li><li><p>PPTP基于C/S模型，主要作为一种安全接入方式。</p></li><li><p>PPTP服务器在TCP1723端口监听来自客户端的服务请求。</p></li><li><p>PPTP利用会话中的CALL-ID作为会话的唯一识别以及穿越NAT的一个关键字段。</p></li><li><p>PPTP通信要建立两条连接：控制连接（承载与TCP协议之上），数据连接</p></li><li><p>PPTP可以选用MPPE（RSA RC4 40,56,128）作为加密方式。</p></li></ol><h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><h5 id="PPTP-典型应用场景："><a href="#PPTP-典型应用场景：" class="headerlink" title="PPTP 典型应用场景："></a>PPTP 典型应用场景：</h5><p>单个用户远程访问家中的内网资源（Client to LAN）</p><p><strong>构建过程</strong></p><p>•首先在服务器（Ubuntu）上部署PPTP服务，添加认证用户</p><p>•Client在外可以通过配置相应的用户登录信息从而连接到家中的Router访问web服务器</p><h4 id="模拟拓扑"><a href="#模拟拓扑" class="headerlink" title="模拟拓扑"></a>模拟拓扑</h4><p><img src="topology.png" alt="PPTP拓扑"></p><h6 id="配置信息"><a href="#配置信息" class="headerlink" title="配置信息"></a>配置信息</h6><p>PC：</p><p>Home Gateway Router：</p><p>Ubuntu：</p><p>NAS：</p><h4 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> Networking </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> PPTP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Macbook外接2k显示器配置教程</title>
       <link href="/2020/12/13/macbook-wai-jie-2k-xian-shi-qi-pei-zhi-jiao-cheng/"/>
       <url>/2020/12/13/macbook-wai-jie-2k-xian-shi-qi-pei-zhi-jiao-cheng/</url>

@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Macbook外接2k显示器配置教程, Networking">
+    <meta name="keywords" content="PPTP原理介绍, Networking">
     <meta name="description" content="N/A">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Macbook外接2k显示器配置教程 | Cultivator</title>
+    <title>PPTP原理介绍 | Cultivator</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Macbook外接2k显示器配置教程</h1>
+                    <h1 class="description center-align post-title">PPTP原理介绍</h1>
                 </div>
             </div>
         </div>
@@ -430,12 +430,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/PPTP/">
+                                <span class="chip bg-color">PPTP</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Networking/" class="post-category">
+                                Networking
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -453,7 +466,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    610
                 </div>
                 
 
@@ -475,58 +488,80 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="blog内容备份记录"><a href="#blog内容备份记录" class="headerlink" title="blog内容备份记录"></a>blog内容备份记录</h1><hr>
-<h3 id="2020-12-12-MacBook-外接2k屏幕分辨率方案"><a href="#2020-12-12-MacBook-外接2k屏幕分辨率方案" class="headerlink" title="2020.12.12 MacBook 外接2k屏幕分辨率方案"></a>2020.12.12 MacBook 外接2k屏幕分辨率方案</h3><p><a href="https://codeclou.github.io/Display-Override-PropertyList-File-Parser-and-Generator-with-HiDPI-Support-For-Scaled-Resolutions/" target="_blank" rel="noopener">项目官方网站</a></p>
-<blockquote>
-<p>Github 链接: <a href="https://github.com/codeclou/Display-Override-PropertyList-File-Parser-and-Generator-with-HiDPI-Support-For-Scaled-Resolutions.git" target="_blank" rel="noopener">仓库地址链接</a></p>
-</blockquote>
-<h1 id="英文原版介绍："><a href="#英文原版介绍：" class="headerlink" title="英文原版介绍："></a>英文原版介绍：</h1><h3 id="How-to-use-Scale-Resolutions"><a href="#How-to-use-Scale-Resolutions" class="headerlink" title="How to use Scale Resolutions"></a><strong>How to use Scale Resolutions</strong></h3><p>Follow the steps below to learn how to use Scale Resolutions. See the awesome <a href="http://www.tonymacx86.com/threads/adding-using-hidpi-custom-resolutions.133254/" target="_blank" rel="noopener">tonymacx86.com forum</a> for more details.</p>
-<p><strong>This tool is provided without warranty</strong>. codeclou is not responsible for damages to your system. It is heavily discouraged to edit files in <em>/System/</em> directory. You are doing it at your own risk.</p>
-<h3 id="Enable-HiDPI-Mode"><a href="#Enable-HiDPI-Mode" class="headerlink" title="Enable HiDPI Mode"></a><strong>Enable HiDPI Mode</strong></h3><p>Open your terminal and copy/paste the following command to enable HiDPI mode:</p>
-<p>sudo defaults write /Library/Preferences/com.apple.windowserver.plist DisplayResolutionEnabled -bool true</p>
-<h3 id="Detect-your-Display"><a href="#Detect-your-Display" class="headerlink" title="Detect your Display"></a><strong>Detect your Display</strong></h3><p>To detect your display copy/paste the following command into your terminal:</p>
-<p>ioreg -lw0 | grep IODisplayPrefsKey</p>
-<p>The output on a Mac should look like so:</p>
-<pre><code>&quot;IODisplayPrefsKey&quot; = &quot;IOService:/AppleACPIPlatformExpert/PCI0@0/AppleACPIPCI/IGPU@2/AppleIntelFramebuffer@0/display0/AppleBacklightDisplay-610-a019&quot;&quot;IODisplayPrefsKey&quot; = &quot;IOService:/AppleACPIPlatformExpert/PCI0@0/AppleACPIPCI/IGPU@2/AppleIntelFramebuffer@2/display0/AppleDisplay-10ac-d06e&quot;</code></pre><p>All external monitors are identified by <em>AppleDisplay</em> and internal monitors by <em>AppleBacklightDisplay</em>. So if you want to set scale resolutions for your external monitor you will need to look at the second line. Identify at the end of the line your <strong>DisplayVendorId</strong> as <code>10ac</code> and your <strong>DisplayProductID</strong> as <code>d06e</code> and note these values. Now insert them into the corresponding input fields on the top left and the generator will generate a basic plist file for you.</p>
-<h3 id="Customize-your-Resolutions"><a href="#Customize-your-Resolutions" class="headerlink" title="Customize your Resolutions"></a><strong>Customize your Resolutions</strong></h3><p>Now you can customize the <strong>Scale Resolutions</strong>. For example you could enter <strong>2560x1440</strong> and enable <strong>HiDPI</strong>. Be aware that the generator does not do any sanity checks for you, what you enter is just getting encoded. Please be aware that depending on your monitor and internal mac-checkups during startup some resolutions might not work.</p>
-<h3 id="Download-plist-and-copy-to-System-folder"><a href="#Download-plist-and-copy-to-System-folder" class="headerlink" title="Download plist and copy to System folder"></a><strong>Download plist and copy to System folder</strong></h3><p>Once you have configured all your resolutions click the download button. A file called <code>DisplayProductID-*.plist</code> will download.</p>
-<p>Now copy this file to the destination that has been calculated on the top right under <strong>Display PropertyList Filename</strong>. Example for a DELL Monitor:</p>
-<p>sudo cp ~/Downloads/DisplayProductID-d06e.plist /System/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-10ac/DisplayProductID-d06e</p>
-<p><strong>NOTE:</strong> That you might need to <a href="http://osxdaily.com/2015/10/05/disable-rootless-system-integrity-protection-mac-os-x/" target="_blank" rel="noopener">disable System Integrity Protection</a> (at your own risk) to copy files to <code>/System/</code>. If you are running macOS Catalina or above, see the note below.</p>
-<p><strong>NOTE:</strong> On macOS Catalina systems (or <a href="https://developer.apple.com/forums/thread/649832" target="_blank" rel="noopener">above</a>), the <code>/System/</code> folder is mounted read-only, so instead you should copy the file to <code>/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-10ac/DisplayProductID-d06e</code>. This can be done without disabling System Integrity Protection. If the file path does not exist, create it with <code>sudo mkdir -p /Library/Displays/Contents/Resources/Overrides/DisplayVendorID-10ac</code></p>
-<h3 id="Restart-Mac-and-use-Resolutions"><a href="#Restart-Mac-and-use-Resolutions" class="headerlink" title="Restart Mac and use Resolutions"></a><strong>Restart Mac and use Resolutions</strong></h3><p>Now you can change your resolution to the ones you entered (if macOS did not disable them during boot check-ups)</p>
-<p>A very handy <a href="https://github.com/avibrazil/RDM" target="_blank" rel="noopener">tool to enable resolutions is RDM</a>.If you are more into commandline tools you might like <a href="https://github.com/jhford/screenresolution" target="_blank" rel="noopener">screenresolutions</a>.And if you are willing to pay a small amount <a href="http://www.madrau.com/" target="_blank" rel="noopener">SwitchResX</a> is also a great tool.</p>
-<h1 id="中文翻译版："><a href="#中文翻译版：" class="headerlink" title="中文翻译版："></a>中文翻译版：</h1><h2 id="MacBook-外接显示器开启-HiDPI-模式教程"><a href="#MacBook-外接显示器开启-HiDPI-模式教程" class="headerlink" title="MacBook 外接显示器开启 HiDPI 模式教程"></a>MacBook 外接显示器开启 HiDPI 模式教程</h2><p>整个配置过程比较简单，整体思路是修改位于</p>
-<p><code>/System/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-xxxx/DisplayProductID-xxxx</code></p>
-<p>的配置文件，写入需要 macOS 针对该型号屏幕输出像素数。</p>
-<h3 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h3><p>通过在 Terminal 中输入命令，开启 HiDPI 模式</p>
-<p><code>$ sudo defaults write /Library/Preferences/com.apple.windowserver.plist DisplayResolutionEnabled -bool true</code></p>
-<h3 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h3><p>连接上显示器，获取并记录显示器信息</p>
-<p><code>$ ioreg -lw0 | grep IODisplayPrefsKey</code></p>
-<p>使用该命令会输出 MacBook 当前连接的所有显示器，其中 AppleBacklightDisplay 代表内部显示器，AppleDisplay 代表外部监视器。例如，我的输出如下：</p>
-<pre><code>&quot;IODisplayPrefsKey&quot; = &quot;IOService:/AppleACPIPlatformExpert/PCI0@0/AppleACPIPCI/IGPU@2/AppleIntelFramebuffer@0/display0/AppleBacklightDisplay-610-a03e&quot;
-&quot;IODisplayPrefsKey&quot; = &quot;IOService:/AppleACPIPlatformExpert/PCI0@0/AppleACPIPCI/IGPU@2/AppleIntelFramebuffer@2/display0/AppleDisplay-10ac-d0c1&quot;</code></pre><p>其中第二行代表我的 Dell 显示器，行末的 10ac 字段是 DisplayVendorId ，d0c1 字段是 DisplayProductID。将这两个参数记录下来。</p>
-<h3 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h3><p>通过网页生成需要的 plist 配置文件。打开网页</p>
-<p><code>https://comsysto.github.io/Display-Override-PropertyList-File-Parser-and-Generator-with-HiDPI-Support-For-Scaled-Resolutions/</code></p>
-<p>填入上一步记录的 DisplayProductID 和 DisplayVendorId ，配置想要的分辨率，然后点击 <strong><em>Download DisplayProductID-xxxx</em></strong> 下载配置好的 plist 文件。</p>
-<h3 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h3><blockquote>
-<p>macOS Catalina systems以下版本系统方法：</p>
-</blockquote>
-<p>这一步由于需要往系统文件夹写入文件，所以必须先禁用系统完整性保护（System Integrity Protection），步骤如下：</p>
-<ol>
-<li>重启 Mac，启动时按住 Command + R，进入 Recovery 模式。</li>
-<li>当出现 <strong><em>MacOS Utilities”/“OS X Utilities</em></strong> 屏幕时，按下屏幕顶部的 <strong><em>Utilities</em></strong> 菜单，然后选择 <strong><em>Terminal</em></strong>。</li>
-<li>输入命令 <code>$ csrutil disable; reboot</code> 。</li>
+                <h1 id="PPTP详解"><a href="#PPTP详解" class="headerlink" title="PPTP详解"></a>PPTP详解</h1><h4 id="知识点梳理："><a href="#知识点梳理：" class="headerlink" title="知识点梳理："></a>知识点梳理：</h4><ol>
+<li>背景内容介绍</li>
+<li>基础知识</li>
+<li>应用场景</li>
+<li>模拟拓扑</li>
+<li>环境搭建（服务器基于Ubuntu，客户端基于Windows）</li>
+<li>验证PPTP连接是否成功</li>
+<li>基于报文详细分析连接构建过程</li>
+<li>基于报文分析连接维护过程</li>
+<li>基于数据报文的格式分析报文封装过程</li>
+<li>总结</li>
 </ol>
-<p>Mac 自动重启后，在 Terminal 输入如下命令，将 plist 文件拷贝至系统目录。 注意：命令中的三处 xxxx 需要替换成自己显示器的信息。</p>
-<p><code>$ sudo cp ~/Downloads/DisplayProductID-xxxx.plist /System/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-xxxx/DisplayProductID-xxxx</code></p>
-<p>完成后，建议重新开启系统完整性保护，步骤同上，命令为 <code>$ csrutil enable</code> 。</p>
-<blockquote>
-<p>在 macOS Catalina systems 或者更高版本的系统上，不需要禁用系统完整性保护, 因为 /System/ folder 的挂载是只读的 , 所以此时需要将文件拷贝到路径： /Library/Displays/Contents/Resources/Overrides/DisplayVendorID-10ac/DisplayProductID-d06e. 如果默认路径不存在，则先使用命令手动创建路径：sudo mkdir -p /Library/Displays/Contents/Resources/Overrides/DisplayVendorID-10ac</p>
-</blockquote>
-<h3 id="Step-5"><a href="#Step-5" class="headerlink" title="Step 5"></a>Step 5</h3><p>重启 Mac，此时已经可以使用自己配置的分辨率了。</p>
-<p>最后，推荐使用switchresx对分辨率设定进行管理。</p>
+<h4 id="背景内容介绍"><a href="#背景内容介绍" class="headerlink" title="背景内容介绍"></a>背景内容介绍</h4><h6 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h6><p>PPTP（Point-to-Point Tunneling Protocol）是一种基于PPP的点对点隧道协议。</p>
+<h6 id="RFC协议号："><a href="#RFC协议号：" class="headerlink" title="RFC协议号："></a>RFC协议号：</h6><p>2637 </p>
+<h6 id="协议文档："><a href="#协议文档：" class="headerlink" title="协议文档："></a>协议文档：</h6><p><a href="https://tools.ietf.org/html/rfc2637" target="_blank" rel="noopener">RFC2637 PPTP协议文档</a></p>
+<h6 id="关键词："><a href="#关键词：" class="headerlink" title="关键词："></a>关键词：</h6><p><strong>NAS</strong>(Netword Access Server)  <strong>PDU</strong>(Protocol data units)  <strong>Call</strong>  <strong>PAC</strong>(PPTP access Concentrator)  <strong>PNS</strong>(PPTP Network Server)  </p>
+<h6 id="PPTP控制消息类型以及消息码："><a href="#PPTP控制消息类型以及消息码：" class="headerlink" title="PPTP控制消息类型以及消息码："></a>PPTP控制消息类型以及消息码：</h6><pre><code>     Control Message                        Message Code
 
+     (Control Connection Management)
+
+     Start-Control-Connection-Request            1
+     Start-Control-Connection-Reply              2
+     Stop-Control-Connection-Request             3
+     Stop-Control-Connection-Reply               4
+     Echo-Request                                5
+     Echo-Reply                                  6
+
+     (Call Management)
+
+     Outgoing-Call-Request                       7
+     Outgoing-Call-Reply                         8
+     Incoming-Call-Request                       9
+     Incoming-Call-Reply                        10
+     Incoming-Call-Connected                    11
+     Call-Clear-Request                         12
+     Call-Disconnect-Notify                     13
+
+     (Error Reporting)
+
+     WAN-Error-Notify                           14
+
+     (PPP Session Control)
+
+     Set-Link-Info                              15</code></pre><h4 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h4><h6 id="PPTP数据报文格式："><a href="#PPTP数据报文格式：" class="headerlink" title="PPTP数据报文格式："></a>PPTP数据报文格式：</h6><p><img src="pptp_format.png" alt="PPTP报文"></p>
+<h6 id="简介（快速了解关于PPTP的一些相关内容）："><a href="#简介（快速了解关于PPTP的一些相关内容）：" class="headerlink" title="简介（快速了解关于PPTP的一些相关内容）："></a>简介（快速了解关于PPTP的一些相关内容）：</h6><ol>
+<li><p>原始的IP报文加上PPP头部后，封装成PPP帧。GRE作为隧道协议，隧道中传输的是重新封装后得到的PPP帧；</p>
+</li>
+<li><p>IP协议作为传输协议，封装后的报文在公网上传输时，根据新的IP头部信息进行路由传输。</p>
+</li>
+<li><p>PPTP只能使用IP作为传输协议，也就是说，PPTP VPN只能运行于IP网络中。</p>
+</li>
+<li><p>PPTP工作在OSI模型的第二层，提供了一种在Internet上建立安全隧道的方式</p>
+</li>
+<li><p>PPTP基于C/S模型，主要作为一种安全接入方式。</p>
+</li>
+<li><p>PPTP服务器在TCP1723端口监听来自客户端的服务请求。</p>
+</li>
+<li><p>PPTP利用会话中的CALL-ID作为会话的唯一识别以及穿越NAT的一个关键字段。</p>
+</li>
+<li><p>PPTP通信要建立两条连接：控制连接（承载与TCP协议之上），数据连接</p>
+</li>
+<li><p>PPTP可以选用MPPE（RSA RC4 40,56,128）作为加密方式。</p>
+</li>
+</ol>
+<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><h5 id="PPTP-典型应用场景："><a href="#PPTP-典型应用场景：" class="headerlink" title="PPTP 典型应用场景："></a>PPTP 典型应用场景：</h5><p>单个用户远程访问家中的内网资源（Client to LAN）</p>
+<p><strong>构建过程</strong></p>
+<p>•首先在服务器（Ubuntu）上部署PPTP服务，添加认证用户</p>
+<p>•Client在外可以通过配置相应的用户登录信息从而连接到家中的Router访问web服务器</p>
+<h4 id="模拟拓扑"><a href="#模拟拓扑" class="headerlink" title="模拟拓扑"></a>模拟拓扑</h4><p><img src="topology.png" alt="PPTP拓扑"></p>
+<h6 id="配置信息"><a href="#配置信息" class="headerlink" title="配置信息"></a>配置信息</h6><p>PC：</p>
+<p>Home Gateway Router：</p>
+<p>Ubuntu：</p>
+<p>NAS：</p>
+<h4 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h4>
                 
             </div>
             <hr/>
@@ -552,7 +587,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hellowb.cn/2020/12/13/macbook-wai-jie-2k-xian-shi-qi-pei-zhi-jiao-cheng/">https://hellowb.cn/2020/12/13/macbook-wai-jie-2k-xian-shi-qi-pei-zhi-jiao-cheng/</a>
+                    <a href="https://hellowb.cn/2020/12/13/pptp-yuan-li-jie-shao/">https://hellowb.cn/2020/12/13/pptp-yuan-li-jie-shao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -589,7 +624,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/PPTP/">
+                                    <span class="chip bg-color">PPTP</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -757,9 +796,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/12/13/pptp-yuan-li-jie-shao/">
                     <div class="card-image">
@@ -777,9 +817,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -792,6 +832,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -810,48 +851,32 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/16/sort-algorithms/">
+                <a href="/2020/12/13/macbook-wai-jie-2k-xian-shi-qi-pei-zhi-jiao-cheng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="十大经典排序算法整理汇总（附代码）">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Macbook外接2k显示器配置教程">
                         
-                        <span class="card-title">十大经典排序算法整理汇总（附代码）</span>
+                        <span class="card-title">Macbook外接2k显示器配置教程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文整理并总结了十大经典的排序算法（冒泡排序、选择排序、插入排序、快速排序、归并排序、希尔排序、计数排序、基数排序、桶排序、堆排序）的时间复杂度、空间复杂度等性质。
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-13
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/编程算法/" class="post-category">
-                                    编程算法
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Edmond
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
-                    </a>
-                    
-                    <a href="/tags/算法/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
                 </div>
                 
             </div>
