@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hellowb.cn/"/>
-  <updated>2020-12-12T14:36:41.004Z</updated>
+  <updated>2020-12-12T17:18:41.051Z</updated>
   <id>https://hellowb.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>十大经典排序算法整理汇总（附代码）</title>
-    <link href="https://hellowb.cn/2020/02/16/sort-algorithms/"/>
-    <id>https://hellowb.cn/2020/02/16/sort-algorithms/</id>
-    <published>2020-02-16T07:09:23.000Z</published>
-    <updated>2020-12-12T14:36:41.004Z</updated>
+    <title>Macbook外接2k显示器配置教程</title>
+    <link href="https://hellowb.cn/2020/12/13/macbook-wai-jie-2k-xian-shi-qi-pei-zhi-jiao-cheng/"/>
+    <id>https://hellowb.cn/2020/12/13/macbook-wai-jie-2k-xian-shi-qi-pei-zhi-jiao-cheng/</id>
+    <published>2020-12-12T17:09:26.000Z</published>
+    <updated>2020-12-12T17:18:41.051Z</updated>
     
     <summary type="html">
     
@@ -29,11 +29,30 @@
       
         
         
-          &lt;blockquote&gt;
-&lt;p&gt;关注公众号【算法码上来】，每日算法干货马上就来！&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/medias/contact.jpg&quot; alt&gt;&lt;/p&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot;
+          &lt;h1 id=&quot;blog内容备份记录&quot;&gt;&lt;a href=&quot;#blog内容备份记录&quot; class=&quot;headerlink&quot; title=&quot;blog内容备份记录&quot;&gt;&lt;/a&gt;blog内容备份记录&lt;/h1&gt;&lt;hr&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>十大经典排序算法整理汇总（附代码）</title>
+    <link href="https://hellowb.cn/2020/02/16/sort-algorithms/"/>
+    <id>https://hellowb.cn/2020/02/16/sort-algorithms/</id>
+    <published>2020-02-16T07:09:23.000Z</published>
+    <updated>2020-12-12T17:12:34.908Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
         
       
     
